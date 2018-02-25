@@ -1,2 +1,33 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~open-iconic/font/css/open-iconic-bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+#ingredients {
+  border: 1px solid;
+}
+
+.ing {
+  padding: .25rem;
+  border-bottom: 1px solid;
+
+  &:last-child {
+    border-bottom: 0px;
+  }
+}
+
+.ing-qty,
+.ing-uom {
+  text-align: center;
+}
