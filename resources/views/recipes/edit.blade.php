@@ -26,10 +26,10 @@
     <div class="form-group row">
       {!! Form::label('yield', 'Yield', ['class'=>'col-sm-2 col-form-label']) !!}
       <div class="col-sm-5">
-        {!! Form::text('yield[qty]', $data->meta['yield']['qty'],['class'=>'form-control']) !!}
+        {!! Form::text('yield[qty]', $data->yield['qty'],['class'=>'form-control']) !!}
       </div>
       <div class="col-sm-5">
-        {!! Form::text('yield[uom]', $data->meta['yield']['uom'],['class'=>'form-control']) !!}
+        {!! Form::text('yield[uom]', $data->yield['uom'],['class'=>'form-control']) !!}
       </div>
     </div>
 
@@ -54,7 +54,7 @@
   <fieldset>
 
     <legend>Ingredients</legend>
-    
+
     @if ($data->ingredients()->get()->isEmpty())
       @include('recipes.edit.ingredients', ['ingredients' => $data->ingredients])
     @else
@@ -63,7 +63,13 @@
     @endif
   </fieldset>
 
-  {!! Form::submit('Submit') !!}
+  <div class="form-group row">
+    <div class="col-sm-10 offset-2">
+      {!! Form::submit('Submit', ['class'=>'btn btn-primary btn-block']) !!}
+    </div>
+  </div>
+
+
 
 
   {!! Form::close() !!}

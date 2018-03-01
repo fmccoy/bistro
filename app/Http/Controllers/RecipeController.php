@@ -52,7 +52,7 @@ class RecipeController extends Controller
     public function show($id)
     {
       $recipe = Recipe::find($id);
-      
+
       return view('recipes.crud')
         ->with('crud', 'single')
         ->with('data', $recipe);
@@ -83,10 +83,9 @@ class RecipeController extends Controller
     public function update(Request $request, $id)
     {
       $recipe = Recipe::find($id);
-
       $recipe->name = $request->name;
       $recipe->category = implode(array_wrap($request->category));
-      $recipe->yield = implode($request->yield);
+      $recipe->yield = $request->yield;
       $recipe->type = $request->type;
       $recipe->file = $request->file;
 

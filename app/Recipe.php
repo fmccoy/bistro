@@ -11,6 +11,7 @@ class Recipe extends Model
   protected $guarded = [];
 
   protected $casts = [
+    'yield' => 'array',
     'ingredients' => 'array',
     'meta' => 'array',
     'procedures' => 'array',
@@ -25,9 +26,9 @@ class Recipe extends Model
   public function updateIngredient($id, $ing, $recipe)
   {
     $i = [
-      'id'=> $ing['id'],
-      'description' => $ing['item'],
-      'modifier' => implode(array_wrap($ing['mods'])),
+      'id'=> data_get($ing, 'id', null),
+      'description' => $ing['description'],
+      'modifiers' => implode(array_wrap($ing['modifiers'])),
       'qty' => $ing['qty'],
       'uom' => $ing['uom']
     ];
@@ -35,7 +36,7 @@ class Recipe extends Model
     $ingredient = RecipeIngredient::firstOrNew(['id'=>$id]);
     $ingredient->recipe_id = $recipe;
     $ingredient->description = $i['description'];
-    $ingredient->modifier = $i['modifier'];
+    $ingredient->modifier = $i['modifiers'];
     $ingredient->qty = $i['qty'];
     $ingredient->uom = $i['uom'];
     $ingredient->save();
