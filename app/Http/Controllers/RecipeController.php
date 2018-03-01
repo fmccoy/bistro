@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Recipe;
+use App\RecipeIngredient;
+
 use Illuminate\Http\Request;
 
 class RecipeController extends Controller
@@ -50,7 +52,7 @@ class RecipeController extends Controller
     public function show($id)
     {
       $recipe = Recipe::find($id);
-      //dd($recipe);
+      
       return view('recipes.crud')
         ->with('crud', 'single')
         ->with('data', $recipe);
@@ -64,7 +66,11 @@ class RecipeController extends Controller
      */
     public function edit($id)
     {
-        //
+      $recipe = Recipe::find($id);
+
+      return view('recipes.crud')
+        ->with('crud', 'edit')
+        ->with('data', $recipe);
     }
 
     /**
@@ -76,7 +82,20 @@ class RecipeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $recipe = Recipe::find($id);
+
+      $recipe->name = $request->name;
+      $recipe->category = implode(array_wrap($request->category));
+      $recipe->yield = implode($request->yield);
+      $recipe->type = $request->type;
+      $recipe->file = $request->file;
+
+      foreach($request->ingredients as $ing) {
+        $recipe->updateIngredient($ing['id'], $ing, $recipe->id);
+      }
+      $recipe->save();
+
+      return redirect()->route('recipes.show', $id);
     }
 
     /**
