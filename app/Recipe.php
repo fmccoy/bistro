@@ -36,7 +36,7 @@ class Recipe extends Model
     $ingredient = RecipeIngredient::firstOrNew(['id'=>$id]);
     $ingredient->recipe_id = $recipe;
     $ingredient->description = $i['description'];
-    $ingredient->modifier = $i['modifiers'];
+    $ingredient->modifiers = $i['modifiers'];
     $ingredient->qty = $i['qty'];
     $ingredient->uom = $i['uom'];
     $ingredient->save();

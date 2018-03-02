@@ -12,9 +12,9 @@
         <div class="col-3">
           {{ title_case($ing['description']) }}
         </div>
-        @if ($ing['modifier'])
+        @if ($ing['modifiers'])
           <div class="col-3">
-            <em>{{ implode(array_wrap($ing['modifier'])) }}</em>
+            <em>{{ implode(array_wrap($ing['modifiers'])) }}</em>
           </div>
         @endif
       </div>

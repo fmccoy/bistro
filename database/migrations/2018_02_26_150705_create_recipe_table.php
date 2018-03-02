@@ -13,14 +13,14 @@ class CreateRecipeTable extends Migration
      */
     public function up()
     {
-        Schema::create('recipe', function (Blueprint $table) {
+        Schema::create('recipes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('category');
-            $table->string('type');
-            $table->binary('yield');
-            $table->string('file');
+            $table->string('category')->nullable();
+            $table->string('type')->default('batch');
+            $table->binary('yield')->nullable();
+            $table->string('file')->nullable();
             //$table->binary('ingredients');
             //$table->binary('procedures');
             //$table->binary('quality');
@@ -36,6 +36,6 @@ class CreateRecipeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recipe');
+        Schema::dropIfExists('recipes');
     }
 }

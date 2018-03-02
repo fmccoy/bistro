@@ -17,11 +17,11 @@ class CreateRecipeIngredientsTable extends Migration
             $table->increments('id');
             $table->integer('sort_order')->default(0);
             $table->integer('recipe_id')->unsigned();
-            $table->integer('ingredient_id')->unsigned();
-            $table->string('description');
-            $table->string('modifiers');
-            $table->string('qty');
-            $table->string('uom');
+            $table->integer('ingredient_id')->unsigned()->nullable();
+            $table->string('description')->nullable();
+            $table->string('modifiers')->nullable();
+            $table->string('qty')->nullable();
+            $table->string('uom')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
