@@ -12,9 +12,9 @@
 
   <dl>
     <dt>Category:</dt>
-    <dd>{{ $data->meta['category'] }}</dd>
+    <dd>{{ $data->category }}</dd>
     <dt>Yield:</dt>
-    <dd>{{ $data->meta['yield']['qty'] }} {{ $data->meta['yield']['uom'] }}</dd>
+    <dd>{{ $data->yield['qty'] }} {{ $data->yield['uom'] }}</dd>
   </dl>
 
   @isset($data->ingredients)
