@@ -17,6 +17,8 @@
     <dd>{{ $data->yield['qty'] }} {{ $data->yield['uom'] }}</dd>
   </dl>
 
+  @include('recipes.batch')
+
   @isset($data->ingredients)
     @includeif('recipes.ingredients', $data->ingredients)
   @endisset
