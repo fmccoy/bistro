@@ -10,7 +10,7 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Actions</th>
+          <th colspan="2">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +20,8 @@
             <td>{{ $recipe['name'] }}</td>
             <td>
               <a class="btn btn-primary" href="{{ route('recipes.show', ['id' => $recipe['id']]) }}"><span class="oi oi-eye"></span></a>
+            </td>
+            <td>
               <a class="btn btn-primary" href="{{ route('recipes.edit', ['id' => $recipe['id']]) }}"><span class="oi oi-pencil"></span></a>
             </td>
           </tr>
