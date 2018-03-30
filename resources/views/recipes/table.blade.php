@@ -1,4 +1,4 @@
-<div class="col-sm-10 offset-col-1">
+<div class="col-sm-10 offset-sm-1">
   <div class="card">
 
     <div class="card-header bg-secondary text-light">
