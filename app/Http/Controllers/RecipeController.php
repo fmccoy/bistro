@@ -18,7 +18,7 @@ class RecipeController extends Controller
     {
       $recipes = Recipe::all();
       return view('recipes.crud')
-        ->with('crud', 'index')
+        ->with('crud', 'table')
         ->with('data', $recipes);
     }
 
@@ -67,7 +67,7 @@ class RecipeController extends Controller
     public function edit($id)
     {
       $recipe = Recipe::find($id);
-      
+
       return view('recipes.crud')
         ->with('crud', 'edit')
         ->with('data', $recipe);
